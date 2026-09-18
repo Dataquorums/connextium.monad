@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPortal }) => {
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-[#242424] text-[#242424] hover:bg-[#242424] hover:text-[#f6f3f1] text-xs uppercase tracking-wider font-medium transition-all"
           >
-            <span>Finux Labs Docs</span>
+            <span>Finux Labs Chapter</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
