@@ -18,10 +18,10 @@ export const FaqSection: React.FC = () => {
         <div className="max-w-2xl mb-12">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
-            TECHNICAL QUESTIONS
+            FREQUENTLY ASKED
           </div>
           <h2 className="font-editorial text-4xl sm:text-5xl text-[#242424] font-normal leading-tight">
-            Integration architecture, clearing guarantees, and protocol specs.
+            Integration, guarantees, and protocol specifications.
           </h2>
         </div>
 

@@ -14,28 +14,28 @@ export const DocsQuickstart: React.FC = () => {
     {
       title: 'Global Trade Treasury: GTT Explorer',
       category: 'SUPPLY CHAIN FINANCE',
-      desc: 'Modernizing SCF with on-chain Accounts of Digital Assets (ADA). Cryptographic certainty and automated accounting.',
+      desc: 'On-chain Accounts of Digital Assets (ADA) and automated accounting.',
       icon: <Landmark className="w-4 h-4 text-[#2b59d1]" />,
       url: 'https://finuxlabs.github.io/'
     },
     {
       title: 'Verity: Capital Due Value Blueprint',
       category: 'ENTERPRISE CONSENSUS',
-      desc: 'Architectural blueprint resolving commercial value before releasing capital across ERP invoices and multi-party wallets.',
+      desc: 'Resolving commercial value before capital release across ERP invoices.',
       icon: <Shield className="w-4 h-4 text-[#2b59d1]" />,
       url: 'https://finuxlabs.github.io/'
     },
     {
       title: 'Interledger Portal Hub & Node Spec',
       category: 'ILP PROTOCOL',
-      desc: 'Centralized specification vault for ILP node architectures, clearing mechanics, and cross-rail packet routing.',
+      desc: 'ILP node architectures, clearing mechanics, and cross-rail packet routing.',
       icon: <GitBranch className="w-4 h-4 text-[#2b59d1]" />,
       url: 'https://finuxlabs.github.io/'
     },
     {
       title: 'CDSC Commerce & Factoring Model',
       category: 'STRUCTURED CLEARING',
-      desc: 'Process flow model for invoice submission, anchor confirmation, factoring, and swap accounting settlement mechanics.',
+      desc: 'Invoice submission, anchor confirmation, factoring, and swap mechanics.',
       icon: <BookOpen className="w-4 h-4 text-[#2b59d1]" />,
       url: 'https://finuxlabs.github.io/'
     }
@@ -50,14 +50,13 @@ export const DocsQuickstart: React.FC = () => {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
-            FINUX LABS SPECIFICATIONS & SDK
+            SPECIFICATIONS & SDK
           </div>
           <h2 className="font-editorial text-4xl sm:text-5xl text-[#242424] font-normal leading-tight mb-4">
-            Production SDKs grounded in high-fidelity open standards.
+            Production SDKs grounded in open standards.
           </h2>
           <p className="font-mono text-base text-[#4e4d4d]">
-            Connextium implements specifications authored and published by Finux Labs.
-            Integrate using standard npm packages or inspect the open documentation repository.
+            Implementations of Finux Labs specifications. Install via npm or explore open standards.
           </p>
         </div>
 
@@ -109,7 +108,7 @@ export const DocsQuickstart: React.FC = () => {
                   02. CONFIGURE CREDENTIALS
                 </span>
                 <p className="font-mono text-xs text-[#4e4d4d] mb-4">
-                  Export your Finux Labs Echo Mesh endpoint & API key.
+                  Export your Echo endpoint and API key.
                 </p>
               </div>
 

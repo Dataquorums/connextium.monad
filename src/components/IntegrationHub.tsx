@@ -44,14 +44,13 @@ export const IntegrationHub: React.FC = () => {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
-            CORE SOFTWARE INTEGRATION FEATURES
+            INTEGRATION MODULES
           </div>
           <h2 className="font-editorial text-4xl sm:text-5xl text-[#242424] font-normal leading-tight mb-4">
-            Unified software integrations for enterprise ERPs and modern clearing rails.
+            Unified interfaces for enterprise ERPs and clearing rails.
           </h2>
           <p className="font-mono text-base text-[#4e4d4d] leading-relaxed">
-            Eliminate fragmented batch files and manual netting. Connextium provides programmatic
-            interfaces linking accounts payable, invoice factoring, and settlement execution.
+            Programmatic interfaces linking accounts payable, dynamic factoring, and instant multi-rail settlement.
           </p>
         </div>
 
@@ -104,7 +103,7 @@ export const IntegrationHub: React.FC = () => {
             <div className="space-y-4 pt-4 border-t border-[#cecac8]/60 text-xs font-mono">
               <div>
                 <span className="text-[10px] uppercase text-[#797776] block mb-2">
-                  SUPPORTED PROTOCOLS & INTERFACES
+                  PROTOCOLS & INTERFACES
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {activeModule.protocols.map((proto) => (
@@ -120,7 +119,7 @@ export const IntegrationHub: React.FC = () => {
 
               <div>
                 <span className="text-[10px] uppercase text-[#797776] block mb-2">
-                  ENTERPRISE ERP & TMS COMPATIBILITY
+                  ERP & TMS COMPATIBILITY
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {activeModule.erpCompatibility.map((erp) => (
@@ -138,7 +137,7 @@ export const IntegrationHub: React.FC = () => {
                 <div className="p-3 rounded-2xl bg-[#f6f3f1] border border-[#cecac8]/40">
                   <div className="flex items-center gap-1.5 text-[10px] uppercase text-[#797776] mb-1">
                     <Cpu className="w-3 h-3 text-[#2b59d1]" />
-                    <span>HOP LATENCY</span>
+                    <span>LATENCY</span>
                   </div>
                   <div className="text-sm text-[#242424] font-medium">{activeModule.latency}</div>
                 </div>

@@ -5,25 +5,25 @@ export const INTEGRATION_MODULES: IntegrationModule[] = [
     id: 'gtt-api',
     name: 'GTT Business Client API',
     tag: 'GLOBAL TRADE TREASURY',
-    shortDesc: 'On-chain Accounts of Digital Assets (ADA) with automated cryptographic ledger sync for buyers, suppliers, and liquidity pools.',
-    fullDesc: 'The Global Trade Treasury (GTT) Business Client API exposes stable REST/gRPC endpoints and webhook event subscriptions. It replaces delayed bank batch processing and opaque ERP reconciliation with cryptographically verified multi-party balances and programmatic sub-ledgers.',
+    shortDesc: 'Automated sub-ledger sync for buyers, suppliers, and liquidity pools.',
+    fullDesc: 'REST & gRPC endpoints replacing delayed batch processing with cryptographically verified multi-party balances and sub-ledgers.',
     protocols: ['REST v2', 'gRPC', 'ILP-SPSP', 'WebSocket'],
     erpCompatibility: ['SAP S/4HANA', 'Oracle ERP Cloud', 'NetSuite SuiteScript', 'MS Dynamics 365'],
     latency: '< 180ms',
-    security: 'Ed25519 Request Signing + mTLS',
+    security: 'Ed25519 Signing + mTLS',
     codeSnippet: {
       language: 'typescript',
       filename: 'treasury-settlement.ts',
       code: `import { ConnextiumClient } from '@connextium/sdk';
 
-// Initialize with Finux Labs Echo environment credentials
+// Initialize with Echo environment credentials
 const client = new ConnextiumClient({
   endpoint: 'https://api.connextium.xyz/v2',
   apiKey: process.env.CONNEXTIUM_API_KEY,
-  environment: 'echo-sandbox' // Finux Labs Echo Mesh
+  environment: 'echo-sandbox'
 });
 
-// Create verifiable Accounts of Digital Assets (ADA) allocation
+// Create verifiable allocation
 const allocation = await client.treasury.createAllocation({
   treasuryId: 'GTT-US-CORP-9821',
   beneficiaryPointer: '$connextium.xyz/supplier/acct_882',
@@ -36,19 +36,19 @@ const allocation = await client.treasury.createAllocation({
   consensusPolicy: 'VERITY_4_EYES_ANCHORED'
 });
 
-console.log('Cryptographic Settlement Anchor:', allocation.proofHash);`
+console.log('Settlement Anchor:', allocation.proofHash);`
     }
   },
   {
     id: 'verity-engine',
     name: 'Verity Capital Due Engine',
     tag: 'SUPPLY CHAIN FINANCE',
-    shortDesc: 'Four-stage architectural blueprint resolving real-world commercial truth before unlocking financing and releasing liquidity.',
-    fullDesc: 'Verity bridges enterprise procurement data and on-chain capital disbursement through a deterministic 4-stage pipeline: (1) Invoice Truth validation from ERP, (2) Buyer-Seller multi-party consensus, (3) Capital Due Value dynamic discounting calculation, and (4) Atomic settlement release.',
-    protocols: ['OpenID Connect', 'EDIFACT / ANSI X12', 'JSON-LD Verifiable Credentials'],
+    shortDesc: 'Four-stage blueprint verifying commercial truth before capital release.',
+    fullDesc: 'Deterministic 4-stage pipeline: ERP Invoice Truth validation, Buyer-Seller consensus, Capital Due discounting, and atomic release.',
+    protocols: ['OpenID Connect', 'EDIFACT / ANSI X12', 'JSON-LD Credentials'],
     erpCompatibility: ['SAP IDoc / BAPI', 'Oracle Business Events', 'Workday Financials'],
     latency: '< 320ms',
-    security: 'Zero-Knowledge Invoice Audit Trail',
+    security: 'Zero-Knowledge Audit Trail',
     codeSnippet: {
       language: 'bash',
       filename: 'verify-invoice.sh',
@@ -59,12 +59,10 @@ curl -X POST https://api.connextium.xyz/v2/verity/verify \\
   -d '{
     "documentId": "INV-2026-09884",
     "erpOrigin": "SAP_S4_HANA",
-    "erpSystemId": "PRD-US-01",
     "buyerAnchorId": "CORP-TESLA-SUPPLY",
     "supplierId": "SUP-SEMICON-88",
     "faceAmount": 782000.00,
     "currency": "EUR",
-    "dueDate": "2026-11-15T00:00:00Z",
     "verificationStage": "BUYER_SELLER_CONSENSUS"
   }'`
     }
@@ -73,12 +71,12 @@ curl -X POST https://api.connextium.xyz/v2/verity/verify \\
     id: 'ilp-gateway',
     name: 'Interledger Protocol Gateway',
     tag: 'PACKET-SWITCHED CLEARING',
-    shortDesc: 'High-throughput packet routing engine connecting traditional banking rails (SWIFT, SEPA, FedNow) with digital asset networks.',
-    fullDesc: 'Based on the Interledger Protocol (ILP) specifications maintained by Finux Labs. Payments are broken into cryptographically bound micropackets streamed across heterogeneous payment adapters, eliminating single-point counterparty credit risk and enabling cross-currency settlement in sub-seconds.',
-    protocols: ['ILPv4 STREAM', 'Bilateral Settlement Engine', 'ISO 20022 camt/pacs'],
+    shortDesc: 'High-throughput packet routing across banking rails and digital networks.',
+    fullDesc: 'Streams cryptographically bound micropackets across payment rails, eliminating counterparty credit risk with sub-second settlement.',
+    protocols: ['ILPv4 STREAM', 'Bilateral Settlement', 'ISO 20022 camt/pacs'],
     erpCompatibility: ['Universal Bank Interface', 'Treasury Workstation Hub'],
-    latency: '< 85ms packet hop',
-    security: 'SHA-256 Preimage Condition Locking',
+    latency: '< 85ms per hop',
+    security: 'SHA-256 Preimage Locking',
     codeSnippet: {
       language: 'typescript',
       filename: 'ilp-stream-packet.ts',
@@ -94,11 +92,11 @@ const stream = router.createStreamSession({
   destinationPointer: '$connextium.xyz/clearing/eu-central',
   totalClearingValue: '1250000.00',
   currency: 'EUR',
-  maxPacketValue: '25000.00' // Auto-packetized clearing
+  maxPacketValue: '25000.00'
 });
 
 stream.on('packetAck', (packet) => {
-  console.log(\`Packet #\${packet.sequence}: \${packet.amount} cleared with proof \${packet.hash}\`);
+  console.log(\`Packet #\${packet.sequence}: \${packet.amount} cleared (\${packet.hash})\`);
 });`
     }
   },
@@ -106,12 +104,12 @@ stream.on('packetAck', (packet) => {
     id: 'cdsc-clearing',
     name: 'CDSC Receivables & Factoring Engine',
     tag: 'DYNAMIC STRUCTURED CLEARING',
-    shortDesc: 'Structured receivables management, dynamic APR discounting curves, and real-time Delivery-vs-Payment (DvP) swap accounting.',
-    fullDesc: 'The Commerce & Dynamic Structured Clearing (CDSC) module tokenizes approved receivables into fungible accounting units. It enables dynamic early payment discounting curves, factoring syndicate distribution, and automated swap accounting at invoice maturity.',
-    protocols: ['DvP Atomic Swap', 'Smart Escrow V2', 'Accounting Matrix Sync'],
+    shortDesc: 'Dynamic discount curves, receivables tokenization, and real-time DvP accounting.',
+    fullDesc: 'Tokenizes receivables into fungible units for dynamic early payment discounts, factoring distribution, and automated maturity swaps.',
+    protocols: ['DvP Atomic Swap', 'Smart Escrow V2', 'Matrix Sync'],
     erpCompatibility: ['Coupa', 'Basware', 'Kyriba TMS', 'Finastra'],
     latency: '< 240ms',
-    security: 'Multi-Sig Escrow + Anchor Consensus',
+    security: 'Multi-Sig Escrow + Consensus',
     codeSnippet: {
       language: 'json',
       filename: 'cdsc-webhook-payload.json',
@@ -125,8 +123,7 @@ stream.on('packetAck', (packet) => {
     "discountSpreadBps": 125,
     "daysAccelerated": 45,
     "factoringSyndicate": "CONNEXTIUM_LIQUIDITY_VAULT_A",
-    "settlementExecution": "IMMEDIATE_ADA_CREDIT",
-    "erpReconciliationWebhook": "https://erp.enterprise.com/hooks/connextium-sync"
+    "settlementExecution": "IMMEDIATE_ADA_CREDIT"
   }
 }`
     }
@@ -140,7 +137,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
     sublabel: 'SAP / Oracle / NetSuite',
     type: 'source',
     status: 'synced',
-    details: 'Bidirectional sync pulling purchase orders, goods receipts, and approved payable invoices via native enterprise connectors.'
+    details: 'Native connectors sync purchase orders, goods receipts, and approved invoices.'
   },
   {
     id: 'node-verity',
@@ -148,7 +145,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
     sublabel: 'Capital Due Verification',
     type: 'verification',
     status: 'active',
-    details: '4-stage consensus protocol proving invoice authenticity, buyer confirmation, and zero-risk double-financing prevention.'
+    details: 'Cryptographic consensus verifying invoice authenticity and eliminating double-financing.'
   },
   {
     id: 'node-gtt',
@@ -156,7 +153,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
     sublabel: 'Digital Asset Accounts (ADA)',
     type: 'treasury',
     status: 'active',
-    details: 'Cryptographic ledger maintaining real-time programmable liquidity pools and multi-currency sub-account balances.'
+    details: 'Programmable liquidity sub-ledgers and multi-currency balances in real time.'
   },
   {
     id: 'node-ilp',
@@ -164,7 +161,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
     sublabel: 'Packet-Switched Protocol',
     type: 'settlement',
     status: 'synced',
-    details: 'Interledger packet router distributing clearing transactions across ISO 20022 banking rails and on-chain protocols.'
+    details: 'Packet router streaming value across ISO 20022 bank rails and digital networks.'
   },
   {
     id: 'node-settlement',
@@ -172,7 +169,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
     sublabel: 'SEPA / FedNow / Stablecoin',
     type: 'destination',
     status: 'ready',
-    details: 'Atomic delivery-vs-payment execution with automated remittance ledger posting back to enterprise ERP systems.'
+    details: 'Atomic DvP settlement with automated writeback to enterprise ERP ledgers.'
   }
 ];
 
@@ -182,75 +179,76 @@ export const CORE_FEATURES: FeatureItem[] = [
     title: 'Enterprise ERP Connectors',
     category: 'INTEGRATION ARCHITECTURE',
     badge: 'PLUG & PLAY',
-    description: 'Certified bidirectional integration modules for SAP S/4HANA, Oracle ERP Cloud, and Microsoft Dynamics 365. Eliminates manual CSV exports and batch uploads.',
-    specs: ['Native ABAP / OData connectors', 'Real-time two-way status writeback', 'Zero changes to legacy accounting chart']
+    description: 'Certified two-way connectors for SAP, Oracle, and Dynamics. Eliminates manual CSV exports.',
+    specs: ['Native ABAP & OData connectors', 'Real-time two-way writeback', 'Zero chart-of-accounts disruption']
   },
   {
     id: 'feat-verity',
     title: 'Verity Capital Due Consensus',
     category: 'VERIFICATION MECHANICS',
     badge: 'PATENTED BLUEPRINT',
-    description: 'Resolves commercial invoice truth before capital release. Ensures buyer anchor confirmation and mathematical certainty without credit arbitration.',
-    specs: ['4-Stage consensus state machine', 'Cryptographic invoice fingerprinting', 'Double-financing proof guarantee']
+    description: 'Resolves commercial invoice truth before capital release with buyer anchor consensus.',
+    specs: ['4-stage state machine', 'Cryptographic fingerprinting', 'Double-financing prevention']
   },
   {
     id: 'feat-gtt',
     title: 'GTT Digital Asset Accounts',
     category: 'TREASURY INFRASTRUCTURE',
     badge: 'PROGRAMMABLE LIQUIDITY',
-    description: 'On-chain Accounts of Digital Assets (ADA) replacing static bank accounts with programmable, auditable, yield-bearing cash sub-ledgers.',
-    specs: ['Sub-second multi-entity netting', 'Automated tax and withholding splits', 'Granular multi-signature controls']
+    description: 'Replaces static bank accounts with programmable, auditable cash sub-ledgers.',
+    specs: ['Sub-second netting', 'Automated tax & withholding splits', 'Granular multi-sig controls']
   },
   {
     id: 'feat-ilp',
     title: 'Interledger Packet Routing',
     category: 'PROTOCOL SPECIFICATION',
     badge: 'INTEROPERABLE',
-    description: 'Implements the Finux Labs Interledger Protocol (ILP) node specification for trust-minimized value streaming across disparate national payment systems.',
-    specs: ['Sub-100ms packet routing latency', 'Support for SWIFT, SEPA, FedNow & on-chain', 'Continuous micro-clearing streams']
+    description: 'Finux Labs ILP node spec for trust-minimized value streaming across global payment rails.',
+    specs: ['Sub-100ms routing latency', 'SWIFT, SEPA, FedNow & on-chain', 'Continuous micro-clearing streams']
   },
   {
     id: 'feat-cdsc',
     title: 'CDSC Dynamic Discounting',
     category: 'SUPPLY CHAIN FINANCE',
     badge: 'FACTORING ENGINE',
-    description: 'Automated early payment financing algorithms that dynamically calculate discount rates based on supplier cash flow urgency and buyer risk tier.',
-    specs: ['Continuous dynamic yield curves', 'Automated swap accounting entries', 'Syndicated institutional liquidity']
+    description: 'Automated early financing algorithms calculating dynamic discounts from buyer risk tiers.',
+    specs: ['Dynamic yield curves', 'Automated swap accounting', 'Syndicated institutional liquidity']
   },
   {
     id: 'feat-agentic',
     title: 'Agentic Finance & Commerce',
     category: 'AUTONOMOUS OPERATIONS',
     badge: 'AI-READY RUNTIME',
-    description: 'Built-in support for autonomous software agents to negotiate invoice factoring, verify delivery checkpoints, and trigger settlement without human intervention.',
-    specs: ['Agentic payment pointers ($pointer)', 'Verifiable credential authorization', 'Configurable spending and risk caps']
+    description: 'Autonomous agent support for negotiating factoring, verifying delivery, and triggering settlement.',
+    specs: ['Agent payment pointers ($pointer)', 'Verifiable credential authorization', 'Configurable spending caps']
   }
 ];
 
 export const TECHNICAL_FAQS: FaqItem[] = [
   {
     category: 'INTEGRATION',
-    question: 'How does Connextium integrate with our existing SAP or Oracle ERP installation?',
-    answer: 'Connextium deploys lightweight native connectors (certified for SAP S/4HANA OData and Oracle REST Integration Cloud). Invoices approved in accounts payable automatically trigger Verity verification events via TLS-encrypted webhooks. When settlement completes, Connextium automatically writes back reconciliation entries (clearing document numbers) directly into your ERP ledger.'
+    question: 'How does Connextium integrate with SAP or Oracle ERP?',
+    answer: 'Lightweight connectors (SAP S/4HANA OData & Oracle REST Cloud) trigger Verity verification events via webhooks. Upon settlement, clearing document IDs write back directly to your ERP ledger.'
   },
   {
     category: 'SECURITY',
-    question: 'What is the relationship between Connextium and Finux Labs specifications?',
-    answer: 'Connextium is the flagship operational deployment and production implementation of the open protocol specifications developed by Finux Labs (finuxlabs.github.io). It operationalizes the GTT Business Client API, Verity Supply Chain Finance blueprint, CDSC factoring framework, and the Interledger Protocol (ILP) node mesh.'
+    question: 'What is the relationship with Finux Labs specifications?',
+    answer: 'Connextium is the production deployment of Finux Labs specifications—operationalizing the GTT API, Verity SCF blueprint, CDSC factoring framework, and ILP node mesh.'
   },
   {
     category: 'SETTLEMENT',
-    question: 'How does the 4-stage Verity Capital Due Value pipeline prevent fraud?',
-    answer: 'Before capital is disbursed by any liquidity provider, Verity strictly executes four sequential cryptographic checks: (1) Origin ERP invoice validity and unique digest generation, (2) Buyer anchor confirmation validating goods receipt, (3) Dynamic discounting and wallet funding lock, and (4) Atomic execution over the Interledger gateway. Invoices cannot be double-factored or financed without consensus.'
+    question: 'How does the 4-stage Verity pipeline prevent fraud?',
+    answer: 'Verity runs four sequential checks: (1) ERP invoice digest validation, (2) Buyer goods-receipt consensus, (3) Capital Due discount lock, and (4) Atomic ILP execution. Prevents duplicate financing and unauthorized claims.'
   },
   {
     category: 'PERFORMANCE',
-    question: 'What is the typical settlement speed and throughput of the ILP gateway?',
-    answer: 'The Connextium ILP gateway processes packet-switched settlements in under 85ms per hop with horizontal scaling exceeding 10,000 transactions per second. Real-time payments over SEPA Instant or FedNow achieve sub-5 second end-to-end delivery with instant ERP ledger update.'
+    question: 'What is the settlement speed and throughput of the ILP gateway?',
+    answer: 'Sub-85ms per packet hop with 10,000+ TPS capacity. Real-time bank rails (SEPA Instant, FedNow) achieve end-to-end delivery in under 5 seconds.'
   },
   {
     category: 'DEVELOPERS',
-    question: 'Is there a developer sandbox available to test the GTT Business Client API?',
-    answer: 'Yes. Connextium maintains the Finux Labs Echo Sandbox Environment (echo-sandbox.connextium.xyz), featuring mock ERP instances (SAP/Oracle), simulated banking rails, and real-time Interledger packet inspection tools for developers and treasury partners.'
+    question: 'Is there a developer sandbox available?',
+    answer: 'Yes. The Finux Labs Echo Sandbox (echo-sandbox.connextium.xyz) provides mock ERP instances (SAP/Oracle), simulated rails, and real-time packet inspection.'
   }
 ];
+

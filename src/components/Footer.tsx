@@ -18,8 +18,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="font-mono text-xs text-[#4e4d4d] leading-relaxed max-w-sm">
-              Flagship implementation of Finux Labs specifications—modernizing supply chain finance,
-              trade treasury, and multi-rail packet settlement for global enterprise commerce.
+              Flagship implementation of Finux Labs specifications—modernizing supply chain finance and multi-rail settlement.
             </p>
 
             <div className="pt-2 flex items-center gap-3 text-xs font-mono">

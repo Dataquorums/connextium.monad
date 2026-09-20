@@ -32,13 +32,13 @@ export const CoreFeaturesGrid: React.FC = () => {
         <div className="max-w-2xl mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
-            ARCHITECTURAL PILLARS
+            CORE PILLARS
           </div>
           <h2 className="font-editorial text-4xl sm:text-5xl text-[#242424] font-normal leading-tight mb-4">
-            Engineered for cryptographic certainty and zero balance latency.
+            Cryptographic certainty and real-time balance sync.
           </h2>
           <p className="font-mono text-base text-[#4e4d4d]">
-            Six core foundational capabilities enabling frictionless trade treasury, verified supply chain factoring, and multi-rail packet settlement.
+            Foundational capabilities enabling automated treasury, verified factoring, and packet settlement.
           </p>
         </div>
 

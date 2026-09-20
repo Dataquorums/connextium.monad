@@ -156,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPortal }) => {
               rel="noreferrer"
               className="w-full text-center px-5 py-3 rounded-full border border-[#242424] text-[#242424] text-xs uppercase tracking-wider font-medium"
             >
-              Finux Labs Signal Docs
+              Finux Labs Chapter
             </a>
             <button
               onClick={() => {

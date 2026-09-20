@@ -181,12 +181,12 @@ export const PipelineDiagram: React.FC = () => {
 
                 <div className="flex items-center gap-4 text-xs font-mono shrink-0">
                   <div className="px-4 py-2 rounded-full border border-[#cecac8] bg-[#f6f3f1] flex flex-col">
-                    <span className="text-[10px] uppercase text-[#797776]">VERIFICATION STATUS</span>
-                    <span className="text-[#242424] font-medium uppercase">CRYPTOGRAPHIC PROOF OK</span>
+                    <span className="text-[10px] uppercase text-[#797776]">VERIFICATION</span>
+                    <span className="text-[#242424] font-medium uppercase">PROOF VERIFIED</span>
                   </div>
                   <div className="px-4 py-2 rounded-full border border-[#cecac8] bg-[#f6f3f1] flex flex-col">
-                    <span className="text-[10px] uppercase text-[#797776]">NETWORK HOPS</span>
-                    <span className="text-[#2b59d1] font-medium">ATOMIC SINGLE STREAM</span>
+                    <span className="text-[10px] uppercase text-[#797776]">ROUTING</span>
+                    <span className="text-[#2b59d1] font-medium">ATOMIC STREAM</span>
                   </div>
                 </div>
               </div>
@@ -194,11 +194,11 @@ export const PipelineDiagram: React.FC = () => {
               {/* Data payload preview for selected stage */}
               <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
                 <div className="p-4 rounded-2xl bg-[#f6f3f1] border border-[#cecac8]/40">
-                  <span className="text-[10px] uppercase text-[#797776] block mb-1">IN-FLIGHT PAYLOAD IDENTIFIER</span>
+                  <span className="text-[10px] uppercase text-[#797776] block mb-1">PAYLOAD HASH</span>
                   <span className="text-[#242424] font-medium">0x8f2a93c7...e4b1</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-[#f6f3f1] border border-[#cecac8]/40">
-                  <span className="text-[10px] uppercase text-[#797776] block mb-1">ERP SYNC ANCHOR</span>
+                  <span className="text-[10px] uppercase text-[#797776] block mb-1">ERP ANCHOR</span>
                   <span className="text-[#242424] font-medium">SAP_S4_INV_2026_09884</span>
                 </div>
                 <div className="p-4 rounded-2xl bg-[#f6f3f1] border border-[#cecac8]/40">

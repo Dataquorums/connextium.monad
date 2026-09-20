@@ -229,7 +229,7 @@ export const DeveloperPortalModal: React.FC<DeveloperPortalModalProps> = ({ isOp
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#cecac8] text-xs font-mono text-[#797776]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#a7fccd]"></span>
-            <span>Finux Labs Signal RPC Endpoint Operational</span>
+            <span>RPC Endpoint Active</span>
           </div>
 
           <a
@@ -238,7 +238,7 @@ export const DeveloperPortalModal: React.FC<DeveloperPortalModalProps> = ({ isOp
             rel="noreferrer"
             className="text-[#2b59d1] hover:underline flex items-center gap-1"
           >
-            <span>Open Finux Labs Full Architecture Docs</span>
+            <span>Finux Labs Chapter</span>
             <ExternalLink className="w-3 h-3" />
           </a>
         </div>

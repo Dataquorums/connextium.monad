@@ -39,11 +39,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPortal }) => {
         {/* Monospace Subtext - Technical Manual Character */}
         <p
           id="hero-subtext"
-          className="font-mono text-base sm:text-lg md:text-xl text-[#4e4d4d] max-w-[760px] leading-[1.4] mb-12 tracking-[-0.02em]"
+          className="font-mono text-base sm:text-lg md:text-xl text-[#4e4d4d] max-w-[700px] leading-[1.45] mb-12 tracking-[-0.015em]"
         >
-          Connextium operationalizes Finux Labs specifications—bridging enterprise ERP invoice truth,
-          Verity 4-stage capital verification, and on-chain Accounts of Digital Assets (ADA) with
-          packet-switched Interledger clearing.
+          Operationalizing Finux Labs specs for enterprise ERP reconciliation, Verity 4-stage invoice verification, and instant multi-rail clearing.
         </p>
 
         {/* Centered Pill Action Buttons */}
@@ -87,7 +85,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPortal }) => {
               <span>GTT API Hop</span>
             </div>
             <div className="font-editorial text-2xl text-[#242424]">&lt; 180ms Latency</div>
-            <div className="text-[11px] font-mono text-[#4e4d4d]">Real-time ADA balance</div>
+            <div className="text-[11px] font-mono text-[#4e4d4d]">Real-time ledger sync</div>
           </div>
 
           <div className="flex flex-col gap-1 p-3 rounded-2xl bg-[#f6f3f1] border border-[#cecac8]/40">
@@ -96,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPortal }) => {
               <span>Interledger</span>
             </div>
             <div className="font-editorial text-2xl text-[#242424]">ILPv4 STREAM</div>
-            <div className="text-[11px] font-mono text-[#4e4d4d]">Multi-rail packet clearing</div>
+            <div className="text-[11px] font-mono text-[#4e4d4d]">Multi-rail clearing</div>
           </div>
 
           <div className="flex flex-col gap-1 p-3 rounded-2xl bg-[#f6f3f1] border border-[#cecac8]/40">
@@ -105,7 +103,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenPortal }) => {
               <span>Enterprise ERP</span>
             </div>
             <div className="font-editorial text-2xl text-[#242424]">Bi-directional</div>
-            <div className="text-[11px] font-mono text-[#4e4d4d]">SAP / Oracle / NetSuite</div>
+            <div className="text-[11px] font-mono text-[#4e4d4d]">SAP, Oracle, NetSuite</div>
           </div>
         </div>
       </div>

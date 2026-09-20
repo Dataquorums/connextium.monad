@@ -24,13 +24,13 @@ export const ReceivablesSimulator: React.FC = () => {
         <div className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
-            INTERACTIVE RECONCILIATION SANDBOX
+            FACTORING SANDBOX
           </div>
           <h2 className="font-editorial text-4xl sm:text-5xl text-[#242424] font-normal leading-tight mb-4">
             Simulate dynamic factoring and sub-second treasury clearing.
           </h2>
           <p className="font-mono text-base text-[#4e4d4d]">
-            Test how Verity consensus and CDSC factoring calculate dynamic discount spreads and release liquidity to suppliers while writing back to enterprise AP ledgers.
+            Calculate dynamic discount spreads, early liquidity release, and ERP ledger writebacks in real time.
           </p>
         </div>
 
@@ -132,10 +132,10 @@ export const ReceivablesSimulator: React.FC = () => {
               <ShieldCheck className="w-4 h-4 text-[#2b59d1] shrink-0 mt-0.5" />
               <div>
                 <span className="text-[#242424] font-medium block">
-                  Verity Cryptographic Consensus Guarantee
+                  Verity Consensus Guarantee
                 </span>
                 <span className="text-[#4e4d4d]">
-                  Anchor confirmation locked at ERP intake. Capital released via GTT liquidity pool.
+                  Anchor locked at ERP intake with capital released via GTT liquidity pool.
                 </span>
               </div>
             </div>
@@ -184,26 +184,26 @@ export const ReceivablesSimulator: React.FC = () => {
               <div className="grid grid-cols-2 gap-4 text-xs font-mono mb-6">
                 <div className="p-4 rounded-2xl border border-[#cecac8]/40 bg-[#f6f3f1]/60">
                   <span className="text-[10px] uppercase text-[#797776] block mb-1">
-                    SAVINGS VS TRADITIONAL FACTORING
+                    FACTORING SAVINGS
                   </span>
                   <span className="text-base text-[#242424] font-medium">
                     +${Math.max(0, liquiditySavings).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                   </span>
                   <span className="text-[10px] text-[#797776] block mt-1">
-                    Compared to traditional 2.5% flat bank factoring
+                    vs. traditional 2.5% factoring fee
                   </span>
                 </div>
 
                 <div className="p-4 rounded-2xl border border-[#cecac8]/40 bg-[#f6f3f1]/60">
                   <span className="text-[10px] uppercase text-[#797776] block mb-1">
-                    ERP WRITEBACK STATUS
+                    ERP WRITEBACK
                   </span>
                   <span className="text-base text-[#242424] font-medium flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2b59d1]" />
                     <span>Auto-Cleared</span>
                   </span>
                   <span className="text-[10px] text-[#797776] block mt-1">
-                    Matching document posted to {erpSource}
+                    Clearing document posted to {erpSource}
                   </span>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export const ReceivablesSimulator: React.FC = () => {
             {/* Simulated Cryptographic Audit Ledger String */}
             <div className="pt-4 border-t border-[#cecac8]/60 text-xs font-mono">
               <div className="flex items-center justify-between text-[#797776] mb-2">
-                <span>SIMULATED REMITTANCE RECORD:</span>
+                <span>REMITTANCE RECORD:</span>
                 <span className="text-[10px] text-[#2b59d1]">HASH VERIFIED (ILPv4)</span>
               </div>
               <div className="p-3 rounded-2xl bg-[#000000] text-[#cfdaf5] font-mono text-[11px] truncate">
