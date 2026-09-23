@@ -44,53 +44,54 @@ export const DocsQuickstart: React.FC = () => {
   return (
     <section
       id="specs"
-      className="py-24 px-6 lg:px-12 border-b border-[#cecac8] bg-[#f6f3f1]"
+      className="py-28 md:py-36 px-6 lg:px-12 border-b border-[#cecac8] bg-[#f6f3f1]"
     >
       <div className="max-w-[1432px] mx-auto">
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
-            SPECIFICATIONS & SDK
+            SPECIFICATIONS & OPEN PROTOCOLS
           </div>
           <h2 className="font-editorial text-4xl sm:text-5xl text-[#242424] font-normal leading-tight mb-4">
             Production SDKs grounded in open standards.
           </h2>
           <p className="font-mono text-base text-[#4e4d4d]">
-            Implementations of Finux Labs specifications. Install via npm or explore open standards.
+            Formal implementations of Finux Labs specifications. Install via npm or inspect protocol proofs.
           </p>
         </div>
 
-        {/* 3-Step Quickstart Terminal Strip */}
-        <div className="p-8 md:p-10 rounded-[40px] border border-[#cecac8] bg-[#ffffff] shadow-sm mb-12">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#cecac8]/60 mb-8">
+        {/* Protocol Integration Strip */}
+        <div className="p-8 md:p-12 rounded-[40px] border border-[#cecac8] bg-[#ffffff] shadow-xs mb-14">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#cecac8]/60 mb-10">
             <div>
               <span className="text-xs font-mono uppercase tracking-wider text-[#797776] block mb-1">
-                INTEGRATION IN THREE COMMANDS
+                FORMAL PROTOCOL TRANSITIONS
               </span>
-              <span className="font-editorial text-2xl text-[#242424]">
+              <span className="font-editorial text-3xl text-[#242424]">
                 Enterprise SDK Quickstart
               </span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono text-[#797776]">SDK v2.4.0 (Stable)</span>
-              <span className="w-2 h-2 rounded-full bg-[#a7fccd]"></span>
+              <span className="text-xs font-mono text-[#797776]">SDK v2.4.0 (Deterministic)</span>
+              <span className="w-2 h-2 rounded-full bg-[#10b981]"></span>
             </div>
           </div>
 
+          {/* 3 Step Commands Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Step 1 */}
-            <div className="p-5 rounded-3xl border border-[#cecac8]/60 bg-[#f6f3f1] flex flex-col justify-between">
+            <div className="p-6 rounded-3xl border border-[#cecac8]/60 bg-[#f6f3f1] flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-2">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-2 font-semibold">
                   01. INSTALLATION
                 </span>
-                <p className="font-mono text-xs text-[#4e4d4d] mb-4">
-                  Add the client SDK to your Node.js or TypeScript backend.
+                <p className="font-mono text-xs text-[#4e4d4d] mb-5">
+                  Add the client SDK runtime to your Node.js or TypeScript backend.
                 </p>
               </div>
 
-              <div className="p-3 rounded-2xl bg-[#000000] text-[#f6f3f1] font-mono text-xs flex items-center justify-between gap-2">
+              <div className="p-3.5 rounded-2xl bg-[#000000] text-[#f6f3f1] font-mono text-xs flex items-center justify-between gap-2">
                 <code className="text-[#cfdaf5] truncate">npm i @connextium/sdk</code>
                 <button
                   onClick={() => handleCopy('npm i @connextium/sdk', 'step1')}
@@ -102,17 +103,17 @@ export const DocsQuickstart: React.FC = () => {
             </div>
 
             {/* Step 2 */}
-            <div className="p-5 rounded-3xl border border-[#cecac8]/60 bg-[#f6f3f1] flex flex-col justify-between">
+            <div className="p-6 rounded-3xl border border-[#cecac8]/60 bg-[#f6f3f1] flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-2">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-2 font-semibold">
                   02. CONFIGURE CREDENTIALS
                 </span>
-                <p className="font-mono text-xs text-[#4e4d4d] mb-4">
-                  Export your Echo endpoint and API key.
+                <p className="font-mono text-xs text-[#4e4d4d] mb-5">
+                  Export your Echo endpoint and cryptographic API key.
                 </p>
               </div>
 
-              <div className="p-3 rounded-2xl bg-[#000000] text-[#f6f3f1] font-mono text-xs flex items-center justify-between gap-2">
+              <div className="p-3.5 rounded-2xl bg-[#000000] text-[#f6f3f1] font-mono text-xs flex items-center justify-between gap-2">
                 <code className="text-[#cfdaf5] truncate">export CNX_KEY="cnx_echo_..."</code>
                 <button
                   onClick={() => handleCopy('export CNX_KEY="cnx_echo_..."', 'step2')}
@@ -124,17 +125,17 @@ export const DocsQuickstart: React.FC = () => {
             </div>
 
             {/* Step 3 */}
-            <div className="p-5 rounded-3xl border border-[#cecac8]/60 bg-[#f6f3f1] flex flex-col justify-between">
+            <div className="p-6 rounded-3xl border border-[#cecac8]/60 bg-[#f6f3f1] flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-2">
-                  03. HOOK ERP LISTENER
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-2 font-semibold">
+                  03. MOUNT ERP LISTENER
                 </span>
-                <p className="font-mono text-xs text-[#4e4d4d] mb-4">
+                <p className="font-mono text-xs text-[#4e4d4d] mb-5">
                   Mount the webhook listener for SAP/Oracle invoice events.
                 </p>
               </div>
 
-              <div className="p-3 rounded-2xl bg-[#000000] text-[#f6f3f1] font-mono text-xs flex items-center justify-between gap-2">
+              <div className="p-3.5 rounded-2xl bg-[#000000] text-[#f6f3f1] font-mono text-xs flex items-center justify-between gap-2">
                 <code className="text-[#cfdaf5] truncate">cnx listen --erp=sap_s4</code>
                 <button
                   onClick={() => handleCopy('cnx listen --erp=sap_s4', 'step3')}
@@ -155,17 +156,17 @@ export const DocsQuickstart: React.FC = () => {
               href={spec.url}
               target="_blank"
               rel="noreferrer"
-              className="p-6 rounded-[32px] border border-[#cecac8] bg-[#f6f3f1] hover:bg-[#ffffff] hover:border-[#797776] transition-all flex flex-col justify-between group"
+              className="p-7 rounded-[32px] border border-[#cecac8] bg-[#f6f3f1] hover:bg-[#ffffff] hover:border-[#797776] transition-all flex flex-col justify-between group"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2 rounded-full bg-[#ffffff] border border-[#cecac8]/60 group-hover:border-[#2b59d1] transition-colors">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="p-2.5 rounded-full bg-[#ffffff] border border-[#cecac8]/60 group-hover:border-[#2b59d1] transition-colors">
                     {spec.icon}
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-[#797776] group-hover:text-[#242424] transition-colors" />
                 </div>
 
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#797776] block mb-2">
                   {spec.category}
                 </span>
                 <h4 className="font-editorial text-xl text-[#242424] font-normal leading-snug mb-3">
@@ -176,7 +177,7 @@ export const DocsQuickstart: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-[#cecac8]/40 text-[11px] font-mono text-[#2b59d1] uppercase font-medium flex items-center gap-1">
+              <div className="pt-5 mt-5 border-t border-[#cecac8]/40 text-xs font-mono text-[#2b59d1] uppercase font-medium flex items-center gap-1">
                 <span>Finux Labs Portal</span>
                 <span>→</span>
               </div>

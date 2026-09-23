@@ -12,10 +12,10 @@ export const FaqSection: React.FC = () => {
   return (
     <section
       id="faq"
-      className="py-24 px-6 lg:px-12 border-b border-[#cecac8] bg-[#f6f3f1]"
+      className="py-28 md:py-36 px-6 lg:px-12 border-b border-[#cecac8] bg-[#f6f3f1]"
     >
       <div className="max-w-[1432px] mx-auto">
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-2xl mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
             FREQUENTLY ASKED
@@ -33,14 +33,14 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={index}
-                className="py-8 md:py-10 transition-colors"
+                className="py-10 md:py-12 transition-colors"
               >
                 <button
                   id={`faq-btn-${index}`}
                   onClick={() => toggle(index)}
                   className="w-full text-left flex items-start justify-between gap-6 focus:outline-none group"
                 >
-                  <div className="space-y-1">
+                  <div className="space-y-1.5">
                     <span className="text-[11px] font-mono uppercase tracking-widest text-[#797776] block">
                       {faq.category}
                     </span>
@@ -49,7 +49,7 @@ export const FaqSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="p-2 rounded-full border border-[#cecac8] shrink-0 text-[#242424] group-hover:border-[#242424] transition-all mt-1">
+                  <div className="p-2.5 rounded-full border border-[#cecac8] shrink-0 text-[#242424] group-hover:border-[#242424] transition-all mt-1">
                     <ChevronDown
                       className={`w-5 h-5 transition-transform duration-200 ${
                         isOpen ? 'rotate-180 text-[#2b59d1]' : ''

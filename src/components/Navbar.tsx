@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPortal }) => {
               Connextium<span className="text-[#2b59d1]">.xyz</span>
             </span>
             <span className="text-[10px] uppercase font-mono tracking-widest text-[#797776] -mt-0.5">
-              Finux Labs Protocol
+              Finux Labs
             </span>
           </div>
         </a>

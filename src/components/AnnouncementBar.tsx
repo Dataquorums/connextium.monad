@@ -17,12 +17,12 @@ export const AnnouncementBar: React.FC = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-[#a7fccd] animate-pulse"></span>
             SIGNAL SPEC 2026.07
           </span>
-          <span className="text-[#cecac8] hidden sm:inline">
+          {/* <span className="text-[#cecac8] hidden sm:inline">
             Finux Labs releases GTT Business Client API & Verity Core for enterprise integration.
           </span>
           <span className="text-[#cecac8] sm:hidden">
             GTT Business Client API & Verity Core live on Echo.
-          </span>
+          </span> */}
         </div>
 
         <div className="flex items-center gap-3 shrink-0">

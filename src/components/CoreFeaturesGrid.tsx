@@ -25,11 +25,11 @@ export const CoreFeaturesGrid: React.FC = () => {
   return (
     <section
       id="features"
-      className="py-24 px-6 lg:px-12 border-b border-[#cecac8] bg-[#f6f3f1]"
+      className="py-28 md:py-36 px-6 lg:px-12 border-b border-[#cecac8] bg-[#f6f3f1]"
     >
       <div className="max-w-[1432px] mx-auto">
         {/* Section Header */}
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-2xl mb-20">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#797776] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2b59d1]"></span>
             CORE PILLARS
@@ -42,8 +42,8 @@ export const CoreFeaturesGrid: React.FC = () => {
           </p>
         </div>
 
-        {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Feature Cards Grid (Spacious 3-column) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CORE_FEATURES.map((feat) => {
             const isElevated = feat.id === 'feat-verity';
 
@@ -51,10 +51,10 @@ export const CoreFeaturesGrid: React.FC = () => {
               <div
                 key={feat.id}
                 id={`feature-card-${feat.id}`}
-                className={`rounded-[40px] p-8 md:p-10 flex flex-col justify-between transition-all duration-200 relative overflow-hidden ${
+                className={`rounded-[40px] p-10 flex flex-col justify-between transition-all duration-200 relative overflow-hidden ${
                   isElevated
                     ? 'bg-[#cfdaf5] border border-[#cfdaf5]'
-                    : 'bg-[#f6f3f1] border border-[#cecac8] hover:border-[#797776]'
+                    : 'bg-[#ffffff] border border-[#cecac8] hover:border-[#797776]'
                 }`}
               >
                 {/* For elevated card: atmospheric gradient illustration overlay */}
@@ -72,7 +72,7 @@ export const CoreFeaturesGrid: React.FC = () => {
                       className={`w-12 h-12 rounded-full flex items-center justify-center border ${
                         isElevated
                           ? 'bg-[#ffffff] border-[#cfdaf5]'
-                          : 'bg-[#ffffff] border-[#cecac8]'
+                          : 'bg-[#f6f3f1] border-[#cecac8]'
                       }`}
                     >
                       {getIcon(feat.id)}
@@ -82,7 +82,7 @@ export const CoreFeaturesGrid: React.FC = () => {
                         className={`text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full ${
                           isElevated
                             ? 'bg-[#242424] text-[#ffffff]'
-                            : 'bg-[#cecac8]/40 text-[#4e4d4d]'
+                            : 'bg-[#f6f3f1] text-[#4e4d4d] border border-[#cecac8]/60'
                         }`}
                       >
                         {feat.badge}
@@ -90,17 +90,15 @@ export const CoreFeaturesGrid: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Title in Untitled Serif 24px weight 400 */}
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-[#797776] mb-1.5">
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-[#797776] mb-2">
                     {feat.category}
                   </div>
-                  <h3 className="font-editorial text-2xl md:text-[28px] text-[#242424] font-normal leading-snug mb-4">
+                  <h3 className="font-editorial text-2xl md:text-3xl text-[#242424] font-normal leading-snug mb-4">
                     {feat.title}
                   </h3>
 
-                  {/* Body in Diatype Mono 16px Graphite */}
                   <p
-                    className={`font-mono text-sm leading-relaxed mb-6 ${
+                    className={`font-mono text-sm leading-relaxed mb-8 ${
                       isElevated ? 'text-[#242424]' : 'text-[#4e4d4d]'
                     }`}
                   >
@@ -110,7 +108,7 @@ export const CoreFeaturesGrid: React.FC = () => {
 
                 {/* Specs List */}
                 <div
-                  className={`pt-6 border-t relative z-10 space-y-2 text-xs font-mono ${
+                  className={`pt-6 border-t relative z-10 space-y-2.5 text-xs font-mono ${
                     isElevated ? 'border-[#242424]/20' : 'border-[#cecac8]/60'
                   }`}
                 >
