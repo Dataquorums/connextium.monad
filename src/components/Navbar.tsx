@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPortal }) => {
         {/* Brand Lockup */}
         <a
           id="nav-brand-logo"
-          href="#"
+          href="https://connextium.xyz/"
           className="flex items-center gap-3 group focus:outline-none"
         >
           <div className="w-7 h-7 rounded-full bg-[#242424] flex items-center justify-center text-[#f6f3f1] font-mono text-xs font-semibold group-hover:bg-[#2b59d1] transition-colors">
